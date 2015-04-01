@@ -4,5 +4,8 @@ Consisting 2 non-standard picker that imitate the UIDatePicker bahaviour for Mon
 
 
 
-- iReka Soft, Cyberjaya
+----
+
+Developed by iReka Soft in Cyberjaya
 www.irekasoft.com
+
