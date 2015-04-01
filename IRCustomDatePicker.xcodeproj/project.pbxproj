@@ -16,7 +16,7 @@
 		A35A40201AC6ADA200834113 /* IRCustomDatePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A401F1AC6ADA200834113 /* IRCustomDatePickerTests.m */; };
 		A35A402B1AC6AF9D00834113 /* IRYearPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A402A1AC6AF9D00834113 /* IRYearPickerView.m */; };
 		A35A402E1AC6B2B800834113 /* IRMonthYearPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A402D1AC6B2B800834113 /* IRMonthYearPicker.m */; };
-		A373D0A71ACC890C00F51239 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = A373D0A61ACC890C00F51239 /* ReadMe.md */; };
+		A373D0A91ACC8A0A00F51239 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = A373D0A81ACC8A0A00F51239 /* ReadMe.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		A35A402A1AC6AF9D00834113 /* IRYearPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRYearPickerView.m; sourceTree = "<group>"; };
 		A35A402C1AC6B2B800834113 /* IRMonthYearPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMonthYearPicker.h; sourceTree = "<group>"; };
 		A35A402D1AC6B2B800834113 /* IRMonthYearPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRMonthYearPicker.m; sourceTree = "<group>"; };
-		A373D0A61ACC890C00F51239 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		A373D0A81ACC8A0A00F51239 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +71,7 @@
 		A35A3FF71AC6ADA200834113 = {
 			isa = PBXGroup;
 			children = (
+				A373D0A81ACC8A0A00F51239 /* ReadMe.md */,
 				A35A40021AC6ADA200834113 /* IRCustomDatePicker */,
 				A35A401C1AC6ADA200834113 /* IRCustomDatePickerTests */,
 				A35A40011AC6ADA200834113 /* Products */,
@@ -101,7 +102,6 @@
 				A35A40101AC6ADA200834113 /* Images.xcassets */,
 				A35A40121AC6ADA200834113 /* LaunchScreen.xib */,
 				A35A40031AC6ADA200834113 /* Supporting Files */,
-				A373D0A61ACC890C00F51239 /* ReadMe.md */,
 			);
 			path = IRCustomDatePicker;
 			sourceTree = "<group>";
@@ -234,9 +234,9 @@
 			files = (
 				A35A400C1AC6ADA200834113 /* ViewController.m in Sources */,
 				A35A40091AC6ADA200834113 /* AppDelegate.m in Sources */,
-				A373D0A71ACC890C00F51239 /* ReadMe.md in Sources */,
 				A35A402E1AC6B2B800834113 /* IRMonthYearPicker.m in Sources */,
 				A35A402B1AC6AF9D00834113 /* IRYearPickerView.m in Sources */,
+				A373D0A91ACC8A0A00F51239 /* ReadMe.md in Sources */,
 				A35A40061AC6ADA200834113 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
