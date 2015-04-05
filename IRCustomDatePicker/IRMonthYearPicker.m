@@ -55,7 +55,7 @@ const NSInteger numberOfComponents = 2;
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-
+    
     minYear = [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]].year;
     if (self.minYear) {
         minYear = self.minYear;
@@ -63,13 +63,13 @@ const NSInteger numberOfComponents = 2;
         minYear = YEAR_FROM;
     }
     
-
+    
     maxYear = minYear + 15;
     
     self.months = [self nameOfMonths];
     self.years = [self nameOfYears];
     [self reloadAllComponents];
-
+    
     self.todayIndexPath = [self todayPath];
     
     self.delegate = self;
@@ -124,6 +124,7 @@ const NSInteger numberOfComponents = 2;
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:aDate];
     dateMonth = [components month];
+    
     components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:aDate];
     dateYear = [components year];
     
@@ -150,6 +151,11 @@ const NSInteger numberOfComponents = 2;
     NSString *year = [self.years objectAtIndex:([self selectedRowInComponent:YEAR] % yearCount)];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init]; [formatter setDateFormat:@"MMMM:yyyy"];
+    
+    if (self.locale) {
+        [formatter setLocale:self.locale];
+    }
+    
     NSDate *date = [formatter dateFromString:[NSString stringWithFormat:@"%@:%@", month, year]];
     
     return date;
@@ -170,7 +176,7 @@ const NSInteger numberOfComponents = 2;
     if(component == MONTH)
     {
         NSInteger monthCount = [self.months count];
-        NSString *monthName = [self.months objectAtIndex:(row % monthCount)];
+        NSString *monthName = self.months[(row % monthCount)];
         NSString *currentMonthName = [self currentMonthName];
         if([monthName isEqualToString:currentMonthName])
         {
@@ -180,7 +186,7 @@ const NSInteger numberOfComponents = 2;
     else
     {
         NSInteger yearCount = [self.years count];
-        NSString *yearName = [self.years objectAtIndex:(row % yearCount)];
+        NSString *yearName = self.years[(row % yearCount)];
         NSString *currenrYearName  = [self currentYearName];
         if([yearName isEqualToString:currenrYearName])
         {
@@ -262,9 +268,9 @@ const NSInteger numberOfComponents = 2;
     CGRect frame = CGRectMake(0.f, 0.f, [self componentWidth],rowHeight);
     
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
-//    label.font = [UIFont boldSystemFontOfSize:18.f];
+    //    label.font = [UIFont boldSystemFontOfSize:18.f];
     label.userInteractionEnabled = NO;
     label.tag = LABEL_TAG;
     
@@ -274,10 +280,22 @@ const NSInteger numberOfComponents = 2;
 -(NSArray *)nameOfMonths
 {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    if (self.locale) {
+        [dateFormatter setLocale:self.locale];
+    }
+    
     return [dateFormatter standaloneMonthSymbols];
 }
 
-
+- (void)setLocale:(NSLocale *)locale{
+    _locale = locale;
+    
+    self.months = [self nameOfMonths];
+    
+    [self reloadAllComponents];
+    
+}
 
 -(NSArray *)nameOfYears
 {
@@ -285,11 +303,16 @@ const NSInteger numberOfComponents = 2;
     //Get Current Year into i2
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
+    
+    if (self.locale) {
+        [formatter setLocale:self.locale];
+    }
+    
     int i2  = [[formatter stringFromDate:[NSDate date]] intValue];
     
     NSMutableArray *years = [NSMutableArray array];
     
-    for (int i=minYear; i<=i2; i++) {
+    for (int i = minYear; i <= i2; i++) {
         [years addObject:[NSString stringWithFormat:@"%d",i]];
     }
     
@@ -341,6 +364,9 @@ const NSInteger numberOfComponents = 2;
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMMM"];
+    if (self.locale) {
+        [formatter setLocale:self.locale];
+    }
     return [formatter stringFromDate:[NSDate date]];
 }
 
@@ -348,6 +374,9 @@ const NSInteger numberOfComponents = 2;
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
+    if (self.locale) {
+        [formatter setLocale:self.locale];
+    }
     return [formatter stringFromDate:[NSDate date]];
 }
 

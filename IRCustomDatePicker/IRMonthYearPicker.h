@@ -21,6 +21,10 @@ typedef void (^UIMonthYearPickerValueChangeBlock)(NSDate *newDate);
 @property (nonatomic, strong) NSDate *minimumDate;
 @property (nonatomic, strong) NSDate *maximumDate;
 
+//NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ms"];
+//[dateFormatter setLocale:locale];
+@property (strong, nonatomic) NSLocale *locale;
+
 @property (assign) NSInteger minYear;
 
 

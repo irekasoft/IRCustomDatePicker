@@ -39,6 +39,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.std_datePicker.backgroundColor = [UIColor whiteColor];
+    self.std_datePicker.locale = [NSLocale localeWithLocaleIdentifier:@"ms"];
+    
+    self.month_yearPicker.locale = [NSLocale localeWithLocaleIdentifier:@"ms"];
 }
 
 - (void)didReceiveMemoryWarning {
